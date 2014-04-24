@@ -1,0 +1,14 @@
+# backup files
+*~
+
+# latex
+*.aux 
+*.blg 
+*.out 
+*.bbl 
+*.log 
+*.backup 
+*.lof 
+*.toc 
+*.tui 
+*.lot
