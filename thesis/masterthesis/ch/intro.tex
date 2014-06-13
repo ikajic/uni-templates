@@ -1,0 +1,56 @@
+\chapter{Introduction}
+\pagenumbering{arabic}
+
+The study of human behaviour and the underlying brain processes has been a focus 
+of interest in various scientific fields. In artificial intelligence, the focus 
+has been placed on reproducing human-like performance on a set of tasks which 
+require problem solving skills. In neuroscience, scientists have probed the 
+human brain and tried to identify brain regions and biochemical processes that 
+underlie specific human behaviour. They have even gone so far to stimulate 
+certain brain areas with the goal of temporarily altering the behaviour.
+Replicating human behaviour in robotics has proven useful because robots can be 
+employed instead of humans in automated and monotonous tasks such as assembling 
+products on an assembly line in a factory.
+However, the developmental track leading to such behaviours is often neglected in artificial agents. 
+In particular, very little attention has been given to prerequisites, either environmental or internal, that contribute to the development of such behaviour. 
+Developmental robotics emphasises the study of the human development in robotics. Such investigations yielded the inspiration for implementing algorithms that go beyond hard-coded programs that dictate how a robot should behave. Instead, a robot starts with a set of simple skills which gradually, with rehearsal and integration of sensory information, exhibit more complex behaviours. In this work we focus on the development of sensorimotor coordination, which is an important aspect of the development in the first few years of human life.
+The ability to control limbs is one of the first things human babies learn.
+In this thesis we simulate learning of sensorimotor 
+coordination in a humanoid robot by implementing algorithms inspired by the 
+behaviour observed in infants.
+
+\section{Goal of the Thesis}
+With this thesis we aim to address the issue of sensorimotor learning in humanoid robots. Embodied agents need to show appropriate coordination of action and perception in order to behave and interact in the real world. In particular, we focus on coordination of vision and motor control to see how more complex behaviours, such as grasping and pointing, emerge after acquisition of hand-eye coordination. Such complex behaviours are essential for the intuitive interaction with humans. Our goal is to make a contribution towards developmental robotics by implementing learning mechanisms that are inspired by the behaviour of human infants. 
+We believe that truly autonomous robots should be equipped with as little 
+hard-coded knowledge as possible, and their complex behaviours develop through 
+exploration of their own capabilities as well as exploration of the environment. 
+Apart from simulating the human developmental trajectory, we aim to develop and 
+use a biologically inspired model based on a particular class of neural networks 
+called self-organising maps. In this way, we try to make a link between the 
+behaviour and the phenomenological mechanisms that happen on a neural level. By 
+using simplified artificial neural networks we cannot capture the nature and 
+complexity of processes that happen in the human brain. There are many open 
+questions in the field of simulation of human-like behaviour using neural 
+networks, and with this thesis we try to provide directions for addressing these 
+questions by using artificial agents. In addition, our goal is to explore the 
+prerequisites and consequences of the desired robot behaviour in a realistic 
+experimental setting.
+
+\section{Structure of the Thesis}
+This thesis is structured as follows. Chapter \ref{chap:background} introduces the problem of creating artificial intelligence and puts it into a historical context. In particular, we stress the importance of embodiment in building agents that exhibit certain aspects of human behaviour. In Section \ref{sec:devsoccog} we analyse the development of social and cognitive skills in humans, with an emphasis on sensorimotor learning, and relate them to robots. The underlying neural mechanisms that might contribute to such a development, including the challenges of simulating them, are outlined in Section \ref{sec:neurosci}. Chapter \ref{chap:methods} deals with the approach we took to simulate learning sensorimotor coordination in robots. First we outline the details on the simulation of the body babbling procedure for acquiring sensory data in Section \ref{sec:babbling}. Then we focus on the model for learning hand-eye coordination in Section \ref{sec:themodel}, starting with reviews of the related work and 
+proposing our model. Finally, we report on conducted experiments in Chapter \ref{chap:experiments} and discuss implications of our results in \ref{chap:discussion}. Chapter \ref{chap:conclusion} summarizes the work.
+
+\section{Own Contributions}
+In this thesis, I modified the existing C++ implementation of the random motor 
+babbling algorithm used in \citep{SchillaciH11} and \citep{Hafner2011}.
+The communication with the software and the hardware on the robot was achieved 
+using the NaoTH framework \citep{tdp10} in C++.
+I extended the functionality of the ``minisom'' library \citep{minisom} and used it 
+to train the SOM-based model. I developed the model architecture and 
+implemented the training procedure in Python. 
+Finally, I implemented the algorithm for pointing, which used the parameters 
+obtained in the training procedure, on the robot.
+
+\section{Publications}
+Parts of this thesis were published in the Human-Robot Interaction (HRI) 2014 conference proceedings as the late-breaking report ``Learning hand-eye coordination for a humanoid robot using SOMs'' \citep{KajicSBH14}. At the same conference, a paper focusing on neuroscientific aspects of this work was accepted for the workshop ``HRI: a brige between robotics and neuroscience'' \citep{KajicWS14}. Both papers were presented as posters at the conference in Bielefeld, Germany. In addition, a poster on learning hand-eye coordination was presented at the Minerva Summer School on Cognitive Robotics in Berlin in 2014.
+

@@ -1,0 +1,62 @@
+\chapter{Inhalt}
+Im Inhalt steht dann die eigentlich Arbeit. Insbesondere kann man einige der in main.tex definierten Umgebungen benutzen. Siehe hier:
+
+\section{Umgebungen für den Betreuer}
+
+\subsection{lesen}
+\begin{lesen}
+Dies hier ist neuer Text, der Betreuer soll den Abschnitt hier dezidiert durchlesen.
+\end{lesen}
+
+\subsection{kommentar}
+\begin{kommentar}{Halten Sie den Einfluss der Variablen auf den Gesamtkontext für relevant oder ist das ein Meßfehler?}
+Dies ist der Text, auf den sich die Frage bezieht. Der Betreuer soll den Abschnitt unter der Frage durchlesen und kommentieren.
+\end{kommentar}
+
+\subsection{frage}
+Während man so Text schreibt, stellt sich einem vielleicht eine wichtige Frage, die man jetzt oder später noch beantwortet wissen will.
+\frage{Warum schreibe ich das eigentlich?}
+
+Analog funktioniert eine Bemerkung, die man dem Betreuer mit auf dem Weg geben möchte: \bemerkung{Ich finde diesen Abschnitt sehr gelungen!}
+
+\section{Umgebungen für den Schreiber}
+
+Für den Schreiber einer Arbeit am Institut für Informatik werden hier ein paar Umgebungen definiert, deren Nummerierung dann sinnvoll von \LaTeX mitgezählt wird.
+
+\begin{theorem}
+\label{theorem:mann}
+Ein Mann, der eine Grube gräbt, fällt selbst hinein.
+\end{theorem}
+
+Dies läßt sich dann später auch noch gut referenzieren. Siehe für eine so richtig gut gelungene Referenzierung \zB diese Referenzierung hier, welche auf das obige Theorem \ref{theorem:mann} verweist.
+
+Analog funktionieren lemma, definition, beispiel.
+
+\begin{lemma}
+Theorem \ref{theorem:mann} gilt genau dann wenn die Grube tief genug ist.
+\end{lemma}
+
+Ein konkreter Beweis wird nicht nummeriert und steht daher als einfache \LaTeX - Umgebung mitten in der Welt herum.
+
+\begin{beweis}
+Ist die Grube nicht tief, kann man nicht von fallen sprechen. Theorem \ref{theorem:mann} kann daher nicht gelten.
+\end{beweis}
+
+Der Vollständigkeit halber sei hier noch eine kleine Tabelle gerendert:
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lcccl}
+\hline
+$P_1$           & $\Rightarrow$ & $O_{Job}$           & $\Leftarrow$ & $P_3$ \\ \hline
+Jobs            & $\rightarrow$ & job:jobPosition     & $\leftarrow$ & IT\_Job \\
+job\_desc       & $\rightarrow$ & job:description     & $\leftarrow$ & position \\
+organization    & $\rightarrow$ & job:organization    & $\leftarrow$ & company \\
+                &               & job:department      & $\leftarrow$ & department \\
+start\_date     & $\rightarrow$ & job:start\_date     & $\leftarrow$ & begin \\
+naics           & $\rightarrow$ & job:naics           &              & \\
+                &               & job:publish\_date   & $\leftarrow$ & published \\\hline
+\end{tabular}
+\caption{Example mapping of $P_1$ and $P_2$ to a sample job ontology}
+\label{tab:ex_mapping}
+\end{table}

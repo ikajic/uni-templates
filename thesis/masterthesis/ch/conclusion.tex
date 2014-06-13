@@ -1,0 +1,22 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+
+In the course of this work, a biologically inspired model of human acquisition of hand-eye coordination has been implemented in a robotic platform. 
+Our aim was to follow a developmental paradigm by simulating the sensorimotor experience of an infant. Thus, prior to the interaction with a human the robot used body babbling to learn the extent of its own limb postures. After the acquisition of such a simple skill, a model based on self-organising maps has been trained and implemented in a robot. The robot exhibited pointing gestures when a human presented a tagged object in front of it, strengthening the hypothesis that pointing gestures might emerge from failed grasping actions. We showed that models containing more neurons account for a greater pointing precision. 
+Although our model offers an extremely simplified representation of the complex neural networks observed in real biological systems, it sets up the ground for fastening the link between neuroscience and robotics. We believe that embodied intelligence emerging from simulated biological mechanisms is the key to creating truly intelligent machines. In addition, it might be useful to gain insights about the real neural systems. In particular, robots can be used to simulate behaviour of a young child interacting with the environment. We consider interaction essential for the development of social and cognitive skills. 
+A purely theoretical approach to analysing development is not able to capture the abundance of sensory experience and interactions which contribute to brain plasticity and human development.
+
+
+\section{Future Work}
+\label{sec:future}
+
+The research presented here can be expanded into multiple directions. 
+To increase the pointing precision, one might like to address the training procedure in a greater detail and analyse the influence of learning parameters. The precision might also be improved by averaging the weight values over multiple winning neurons or simply by increasing the number of neurons in a network. 
+More exciting questions with implications relevant for neuroscience might be tackled by increasing the level of biological realism in the model. This can be done by introducing more complex neuron models such as leaky integrate-and-fire or Hodgkin-Huxley that exhibit spiking behaviour. Using such models, one can implement learning rules which depend on spike timing and thus mimic biological systems more closely.
+
+A mechanism which might reflect the ongoing development in neural models is the ability of a model to adapt to more complex inputs.
+The adaptation should be observed as the increase in the model complexity which, in return, should be observable in the robot's behaviour. We speculate that one important aspect of such mechanism is captured by the increased number of neurons in the neural network.
+Algorithms such as growing neural gas qualify as a starting point for simulation of such development. When using such a developmental paradigm in biologically plausible models, one should be able to draw parallels between the stages of development of the model and the stages of development in the biological system. The extension of this algorithm can include the batch learning mode, where the sensory data is processed in chunks. This allows for simultaneous exploration of environment and on-line adaptation of the model.
+
+Within a PhD programme I will start upon receiving the Master's degree, I will continue to use biologically inspired models to investigate the development of higher cognitive functions. In particular, I will analyse sensorimotor and cognitive prerequisites for the emergence of creative and curious behaviour. I will explore the role of grounded cognition and associative relations in the retrieval of memory contents, and their influence on the creative behaviour.
