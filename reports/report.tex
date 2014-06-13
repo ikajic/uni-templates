@@ -1,0 +1,157 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[abstracton, paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+%\documentclass[abstracton]{scrartcl}
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{./gfx/}}
+
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format 
+\usepackage{dsfont}
+\newcommand{\R}{\ensuremath{\mathds{R}}}
+\newcommand{\C}{\ensuremath{\mathds{C}}}
+\newcommand{\Q}{\ensuremath{\mathds{Q}}}
+\newcommand{\N}{\ensuremath{\mathds{N}}}
+\newcommand{\Z}{\ensuremath{\mathds{Z}}}
+\newcommand{\D}{\ensuremath{\mathds{D}}}
+\newcommand{\W}{\ensuremath{\mathds{W}}}
+\newcommand{\B}{\ensuremath{\mathds{B}}}
+\newcommand{\mS}{\ensuremath{\mathds{S}}}
+\newcommand{\1}{\ensuremath{\mathds{1}}}
+\newcommand{\SO}{\ensuremath{\mathsf{SO}}}
+\newcommand{\so}{{\large\Fontlukas{so}}}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\Corr}{Corr}
+\DeclareMathOperator*{\E}{E}
+\DeclareMathOperator*{\sign}{sign}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\customfont}{\normalsize \upshape}
+
+
+\title{	
+\normalfont \normalsize 
+\textsc{Berlin Institute of Technology, Machine Learning department} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge The Title of Your Fab Research Project  \\ % The assignment title
+\horrule{0.5pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\subtitle{\small Theoretical Lab Rotation Report}
+
+\author{
+\customfont \large Ivana Kaji\'c \\ \customfont \large BCCN Berlin \\ \\
+\customfont Supervisors: \\
+}
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{abstract}
+The dynamics of published and shared content in social networks reveals much about the underlying network structure. One important aspect of such networks are users who publish content before the majority of community starts to talk about it and share it. We regard them as high impact users because of their influence in terms of spawning retweets and mentions.In this lab rotation, we use machine learning methods to detect high impact users in the social network Twitter. To this end, we implemented an online, content-based learning approach known as canonical correlation analysis. CCA uses gradient descent optimization to update its parameters and is therefore capable of dealing with large amounts of data in realtime.
+
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{The task} 
+
+\section{Related Work}
+
+\section{Methods}
+
+\paragraph{data and features} 
+
+\begin{align}
+	X_u = [x_u(t=1),\dots,x_u(t=T)] \in\R^{W\times T}
+\end{align}
+
+\begin{align}\label{eq:y}
+Y_u = 1/(U-1)\sum_{u'\neq u}X_{u'} \in \R^{W\times T}
+\end{align}
+
+
+\subsection{Canonical Trend Analysis}
+
+
+
+\begin{algorithm}[t]
+   \caption{Canonical Trend Algorithm}
+   \label{alg:trenddetection}
+\begin{algorithmic}
+   \STATE {\bfseries Input:} Users $\mathcal{X}_u,~u=1,\dots,U$, learning rate $\eta_0$
+	\STATE \# For each new sample $x_u(t)$
+	\FOR{$t=1$ {\bfseries to} $T$}
+	\STATE \# Loop over all users
+   \FOR{$u=1$ {\bfseries to} $U$}
+   \STATE $y_u(t)=1/(1-U)\sum_{u'\neq u}x_{u'}(t)$
+   \STATE \# Temporal Embedding 
+   \STATE $\tilde{x}_u(t)=[x_u(t-N_{\tau})^{\top},\dots,x_u(t-1)^{\top}]^{\top}$
+   \STATE \# Stochastic gradient update of canonical directions $w_{\tilde{X}},~w_y$ 
+   \STATE $w_{\tilde{X}} \leftarrow w_{\tilde{X}} + \eta_0/t~~ \tilde{x}_u(t)y(t)_u^{\top}w_y$
+   \STATE $w_{y} \leftarrow w_{y} + \eta_0/t~~ w_{\tilde{X}}^{\top}\tilde{x}_u(t)y(t)_u^{\top}$
+	\STATE \# Normalize canonical directions
+   \STATE $w_{\tilde{X}} \leftarrow w_{\tilde{X}}\|w_{\tilde{X}}\|_2^{-1}$
+   \STATE $w_{y} \leftarrow w_{y}\|w_y\|_2^{-1}$
+   \ENDFOR
+   \STATE Rank Users $\propto \textrm{Corr}(w_{\tilde{X}}^{\top}x_u, w_y^{\top}y_u)$
+   \ENDFOR
+%   \UNTIL{$noChange$ is $true$}
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\section{Results}
+
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
